@@ -1,0 +1,161 @@
+body 
+{
+	background: url("Data/5.jpg") no-repeat; 
+	-moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+head
+{
+	background: url("Data/5.jpg") no-repeat; 
+	-moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+img.profile
+{
+	margin-left: 45%;
+    margin-top: 10%;
+	
+}
+.field
+{
+	text-align:center; 
+}
+input
+{
+	padding: 2px 9px 4px;
+    border-radius: 12px;
+	margin: -2px;
+}
+input#Orders.buttonBar
+{
+	 height: 100%;
+     width: 100%;
+}
+input#search
+{
+	width: 72%;
+	margin-right: 2px;
+	margin-left: 2px;
+}
+frame.text
+{
+	padding-top: 40px;
+	padding-right: 5px;
+	padding-left: 3px;
+	padding-bottom:15px;
+}
+frame.bar
+{
+	padding-top: 40px;
+	padding-right: 5px;
+	padding-left: 30px;
+	padding-bottom:15px;
+	
+}
+frameset
+{
+	
+	background: url("Data/5.jpg") no-repeat; 
+	-moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%; /* Современные браузеры */
+}
+img#TranportNew
+{
+	padding-top: 5px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+img#TranportChainge
+{
+	padding-top: 5px;
+	padding-right: 1px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+}
+img#GoodsNew
+{
+	padding-top: 5px;
+	padding-right: 35px;
+	padding-bottom: 5px;
+	padding-left: 32px;
+}
+img#GoodsChainge
+{
+	padding-top: 5px;
+	padding-right: 27px;
+	padding-bottom: 5px;
+	padding-left: 32px;
+
+}
+button#search
+{
+    width: 87.5%;
+    margin-left: 0px;
+}
+button.storemanager
+{
+	margin-right: 20px;
+	vertical-align: middle;
+}
+button.storemanager_last
+{
+	margin-right: 20px;
+	margin-bottom: 45px;
+}
+button.admin
+{
+	margin-right: 20px;
+	vertical-align: middle;
+	padding: 19px;
+}
+button.admin_last
+{
+	margin-right: 20px;
+	margin-bottom: 45px;
+	padding: 19px;
+}
+button.PersonalManager
+{
+	margin-right: 20px;
+	vertical-align: middle;
+	padding: 22px;
+}
+button.PersonalManager_last
+{
+	margin-right: 15px;
+	vertical-align: middle;
+	padding: 22px;
+	margin-bottom: 45px;
+}
+button.trademanager
+{
+	margin-right: 20px;
+	vertical-align: middle;
+}
+button.trademanager_last
+{
+	margin-right: 20px;
+	margin-bottom: 45px;
+}
+button.topmanager
+{
+	margin-right: 30px;
+	vertical-align: middle;
+}
+button.resmanager
+{
+	margin-right: 20px;
+	vertical-align: middle;
+}
+button.resmanager_last
+{
+	margin-right: 20px;
+	margin-bottom: 45px;
+}

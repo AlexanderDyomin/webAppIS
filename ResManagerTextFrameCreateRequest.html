@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+	<meta charset="Windows-1251"> 
+	<link rel="stylesheet" type="text/css" href="csspanel.css">
+		<div id="panel">	
+			<div id="hidden_panel">
+			<p><img src="Data/profile.png" style="vertical-align: middle" id="profil"></p>
+		</div>
+	</div>
+ </head>
+ <body style="background: #f0f0f0">
+	<div>
+		<form name = 'create_request'>
+			<p>Со склада: {{storehouse_from | safe}}</p>
+			<p>На склад: {{storehouse_to | safe}}</p>
+			<p>Клиент: {{customer | safe}}</p>
+			<p>Поставщик: {{provider | safe}}</p>
+			<p> Тип операции: 
+				<select name = 'type'>
+					<option value = 'IN'>Завоз на склад от поставщика</option>
+					<option value = 'OUT'>Отгрузка клиенту</option>
+					<option value = 'IN_OUT'>Перевозка между складами</option>
+				</select>
+			</p>
+			<p><input type = 'submit' value = 'Отправить заявку'/></p>
+		</form>
+	</div>
+ </body>
+</html>
