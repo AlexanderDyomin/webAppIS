@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
  <head>
 	<meta charset="Windows-1251"> 
@@ -6,25 +6,54 @@
 		<div id="panel">	
 			<div id="hidden_panel">
 			<p><img src="Data/profile.png" style="vertical-align: middle" id="profil"></p>
+			</div>
 		</div>
-	</div>
  </head>
  <body style="background: #f0f0f0">
 	<div>
-		<form name = 'create_request'>
+		<form name = 'create_request' action = 'http://localhost:5000/create_new_request' method = 'POST'>
 			<p>Со склада: {{storehouse_from | safe}}</p>
 			<p>На склад: {{storehouse_to | safe}}</p>
 			<p>Клиент: {{customer | safe}}</p>
 			<p>Поставщик: {{provider | safe}}</p>
-			<p> Тип операции: 
+			<p>Тип операции: 
 				<select name = 'type'>
 					<option value = 'IN'>Завоз на склад от поставщика</option>
 					<option value = 'OUT'>Отгрузка клиенту</option>
 					<option value = 'IN_OUT'>Перевозка между складами</option>
 				</select>
 			</p>
-			<p><input type = 'submit' value = 'Отправить заявку'/></p>
+			<div id = 'special_for_items'>
+				<p>
+					Наименование позиции: 
+					<input type = 'text' name = 'item_name'/>
+                    Кол-во:
+                    <input type = 'text' name = 'item_count'/>
+                    <button type = "button" onclick="addAnotherOne()">Добавить форму заполнения</button>
+				</p>
+			</div>
+            <p><input type = 'submit' value = 'Создать запрос' /></p>
 		</form>
 	</div>
+	
+	<script type="text/javascript">
+    function addAnotherOne() {
+		 var a = document.getElementById('special_for_items');
+         var a1 = document.createElement("p");
+         a1.innerText = "Наименование позиции: ";
+		 var b = document.createElement("input");
+         var b1 = document.createElement("input");
+         b.type = "text";
+         b.name = "item_name";
+         b1.type = "text";
+         b1.name = "item_count";
+		 a1.appendChild(b);
+         a1.innerHTML += " Кол-во: ";
+         a1.appendChild(b1);
+         a.appendChild(a1);
+    }
+
+	</script>
+
  </body>
 </html>
