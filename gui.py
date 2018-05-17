@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, url_for, redirect
 import requests
 import json
+from datetime import datetime
 
 app = Flask(__name__, template_folder = '.')
 
@@ -45,22 +46,24 @@ def send_new_request():
     r_dict['items'] = []
     t = False
     
-    # return request.form.getlist('item_name')
     for i, j in zip(request.form.getlist('item_name'), request.form.getlist('item_count')):
         if i == '' or j == '':
             continue
         for k in i_json:
             if k['name'] == i:
-                r_dict['items'].append({'id_product' : k['id'], 'count' : j})
+                r_dict['items'].append({'id_product' : str(k['id']), 'count' : str(j)})
                 t = True
                 break
     if(t != True):
         # flash('Вы можете добавиь только товары, которые есть в БД!')
         return redirect(url_for('create_new_request'))
     r_dict['operationType'] = request.form['type']
+    r_dict['dateBegin'] = datetime.now().strftime('%Y-%m-%d')
+    r_dict['id_author'] = '1'
     r_json = json.dumps(r_dict)
     r = requests.post('http://kokoserver.me:8090/request/', json = r_json)
-    return r.status_code
+    return str(r.status_code)
+    # return r_json
 
 if __name__ == '__main__':
     app.run(debug = True)
