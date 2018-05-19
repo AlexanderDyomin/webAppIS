@@ -60,7 +60,7 @@ def send_new_request():
     r_dict['operationType'] = request.form['type']
     r_json = json.dumps(r_dict)
     r = requests.post('http://kokoserver.me:8090/request/', json = r_json)
-    return r.status_code
+    return str(r.status_code) + r_json
 
 if __name__ == '__main__':
     app.run(debug = True)
