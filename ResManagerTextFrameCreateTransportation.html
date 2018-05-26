@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+ <head>
+	<meta charset="Windows-1251"> 
+	<link rel="stylesheet" type="text/css" href="csspanel.css">
+		<div id="panel">	
+			<div id="hidden_panel">
+			<p><img src="Data/profile.png" style="vertical-align: middle" id="profil"></p>
+		</div>
+	</div>
+ </head>
+ <body style="background: #f0f0f0">
+ {% if first_time %}
+    {% if ok %}
+    <form id = 'hidden_id_form' name = 'hidden_id_form' target = '_parent' action = 'http://localhost:5000/create_transportation'><input type = 'hidden' name = 'dummy' value = {{request_id}} /><input type = 'text' name = 'request_id' value = {{request_id}} /></form>
+    <p>Запрос был успешно создан. Вы можете теперь <a href = "#" onclick="document.getElementById('hidden_id_form').submit();"> создать для него транспортировку</a></p>
+    {% else %}
+    <p>Ой, что-то пошло не так! К сожалению, запрос не был создан.</p>
+    {% endif %}
+{% else %}
+<form name = 'transportation_form' action = 'http://localhost:5000/create_transportation' method = 'POST'>
+    <input type = 'hidden' name = 'request_id' value = {{request_id}} />
+    <p>Вес: <input type = 'text' name = 'gross_weight' /></p>
+    <p>Информация товарной накладной: <input type = 'text' name = 'packing_list' /></p>
+    <p>Транспортная компания: {{ transport_company | safe }}</p>
+    <p>Информация путевого листа: <input type = 'text' name = 'waybill' /></p>
+    <p><input type = 'submit' value = 'Создать транспортировку' /></p>
+</form>
+{% endif %}
+ </body>
+</html>

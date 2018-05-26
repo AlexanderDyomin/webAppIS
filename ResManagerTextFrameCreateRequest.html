@@ -11,7 +11,7 @@
  </head>
  <body style="background: #f0f0f0">
 	<div>
-		<form name = 'create_request' action = 'http://localhost:5000/create_new_request' method = 'POST'>
+		<form name = 'create_request' action = 'http://localhost:5000/create_new_request' target = '_parent' method = 'POST'>
 			<p>Со склада: {{storehouse_from | safe}}</p>
 			<p>На склад: {{storehouse_to | safe}}</p>
 			<p>Клиент: {{customer | safe}}</p>
