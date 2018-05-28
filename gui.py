@@ -32,7 +32,7 @@ def create_new_request():
     customer_str = '<select name = \'customer\'>' + ''.join(customer)
     provider = '<select name = \'provider\'>' + ''.join(customer)
     # return "PIZDECCO TOTALE"
-    return render_template('ResManagerTextFrameCreateRequest.html', storehouse_from = storehouse_from, storehouse_to = storehouse_to, customer = customer_str, provider = provider)
+    return render_template('ResManagerScreenCreateRequest.html', storehouse_from = storehouse_from, storehouse_to = storehouse_to, customer = customer_str, provider = provider)
         
 @app.route('/create_new_request', methods = ['POST'])
 def send_new_request():
@@ -64,8 +64,8 @@ def send_new_request():
     headers = {'Content-Type' : 'application/json', 'Accept' : 'application/json'}
     r = requests.post('http://kokoserver.me:8090/request/', data = r_json, headers = headers)
     if r.status_code == 200:
-        return render_template('ResManagerTextFrameCreateTransportation.html', first_time = True, ok = True, request_id = str(r.text))
-    return render_template('ResManagerTextFrameCreateTransportation.html', first_time = True, ok = False)
+        return render_template('ResManagerScreenCreateTransportation.html', first_time = True, ok = True, request_id = str(r.text))
+    return render_template('ResManagerScreenCreateTransportation.html', first_time = True, ok = False)
 
 @app.route('/create_transportation', methods = ['GET'])
 def create_new_transportation():
@@ -82,7 +82,7 @@ def create_new_transportation():
         transport_company.append('</option>')
     transport_company.append('</select>')
     transport_company_str = '<select name = \'transport_company\'>' + ''.join(transport_company)
-    return render_template('ResManagerTextFrameCreateTransportation.html', first_time = False, request_id = str(request_id)
+    return render_template('ResManagerScreenCreateTransportation.html', first_time = False, request_id = str(request_id)
         , transport_company = transport_company_str)
     
 @app.route('/create_transportation', methods = ['POST'])
