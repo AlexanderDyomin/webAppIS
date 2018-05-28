@@ -1,16 +1,68 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
 <html>
-    <head  scroll="yes">
+	<head  scroll="yes">
 		<meta charset="utf-8">
         <title>Managers page</title>
-		<link rel="stylesheet" type="text/css" href="style.css">
-		<link rel="stylesheet" type="text/css" href="csspanel.css">	
-		<frameset cols="13%,87%">
-			<frame src="ResManagerBarFrame.html" scrolling="yes" name="BAR" class="bar">
-			<frame src="ResManagerTextFrameCreateRequest.html" scrolling="yes" name="Text" class="text">
-		</frameset>
-		</head>
-		<body>
-</script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'style.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename = 'csspanel.css') }}">	
+	</head>
+	<body scroll="yes">
+		<div class="block-0">		
+			<div id="panel">	
+				<div id="hidden_panel">
+				</div>
+			</div>
+		</div>
+		<div class="block-1">
+			<p><button class="resmanager"><p><img src="static/Data/Orders2.png"  id="TranportRes"></p>Запрос на перемещение рес-в</button></p>
+			<p><button class="resmanager"><p><img src="static/Data/Orders2.png"  id="ResAnalyse"></p>Анализ доступных ресурсов</button></p>
+			<p><button class="resmanager"><p><img src="static/Data/Orders2.png"  id="AddNewPost"></p>Добавление новых поставщиков</button></p>
+			<p><button class="resmanager"><p><img src="static/Data/Orders2.png"  id="ChangePostData"></p>Изменение данных постащиков</button></p>
+			<p><button class="resmanager_last"  ><p><img src="static/Data/Orders2.png" id="NewResType"></p>Добавление нового типа ресурсов</button></p>
+		</div>
+		<div class="block-2">
+			<form name = 'create_request' action = 'http://localhost:5000/create_new_request' target = '_parent' method = 'POST'>
+			<p>Со склада: {{storehouse_from | safe}}</p>
+			<p>На склад: {{storehouse_to | safe}}</p>
+			<p>Клиент: {{customer | safe}}</p>
+			<p>Поставщик: {{provider | safe}}</p>
+			<p>Тип операции: 
+				<select name = 'type'>
+					<option value = 'IN'>Завоз на склад от поставщика</option>
+					<option value = 'OUT'>Отгрузка клиенту</option>
+					<option value = 'IN_OUT'>Перевозка между складами</option>
+				</select>
+			</p>
+			<div id = 'special_for_items'>
+				<p>
+					Наименование позиции: 
+					<input type = 'text' name = 'item_name'/>
+                    Кол-во:
+                    <input type = 'text' name = 'item_count'/>
+                    <button type = "button" onclick="addAnotherOne()">Добавить форму заполнения</button>
+				</p>
+			</div>
+            <p><input type = 'submit' value = 'Создать запрос' /></p>
+            </form>
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js">   
+		</script>
+        <script type="text/javascript">
+         function addAnotherOne() {
+		 var a = document.getElementById('special_for_items');
+         var a1 = document.createElement("p");
+         a1.innerText = "Наименование позиции: ";
+		 var b = document.createElement("input");
+         var b1 = document.createElement("input");
+         b.type = "text";
+         b.name = "item_name";
+         b1.type = "text";
+         b1.name = "item_count";
+		 a1.appendChild(b);
+         a1.innerHTML += " Кол-во: ";
+         a1.appendChild(b1);
+         a.appendChild(a1);
+    }
+	</script>
 	</body>
 </html>
