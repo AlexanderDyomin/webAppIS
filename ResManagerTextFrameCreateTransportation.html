@@ -12,13 +12,13 @@
  <body style="background: #f0f0f0">
  {% if first_time %}
     {% if ok %}
-    <form id = 'hidden_id_form' name = 'hidden_id_form' target = '_parent' action = 'http://localhost:5000/create_transportation'><input type = 'hidden' name = 'dummy' value = {{request_id}} /><input type = 'text' name = 'request_id' value = {{request_id}} /></form>
+    <form id = 'hidden_id_form' name = 'hidden_id_form' target = '_parent' action = 'http://naryl.bot.nu:7788/create_transportation'><input type = 'hidden' name = 'dummy' value = {{request_id}} /><input type = 'text' name = 'request_id' value = {{request_id}} /></form>
     <p>Запрос был успешно создан. Вы можете теперь <a href = "#" onclick="document.getElementById('hidden_id_form').submit();"> создать для него транспортировку</a></p>
     {% else %}
     <p>Ой, что-то пошло не так! К сожалению, запрос не был создан.</p>
     {% endif %}
 {% else %}
-<form name = 'transportation_form' action = 'http://localhost:5000/create_transportation' method = 'POST'>
+<form name = 'transportation_form' action = 'http://naryl.bot.nu:7788/create_transportation' method = 'POST'>
     <input type = 'hidden' name = 'request_id' value = {{request_id}} />
     <p>Вес: <input type = 'text' name = 'gross_weight' /></p>
     <p>Информация товарной накладной: <input type = 'text' name = 'packing_list' /></p>
